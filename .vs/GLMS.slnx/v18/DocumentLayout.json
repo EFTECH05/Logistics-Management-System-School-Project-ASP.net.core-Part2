@@ -1,0 +1,168 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|c:\\users\\frank\\source\\repos\\eftech05\\logistics-management-system-school-project-asp.net.core-part2\\glms\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{50A73D17-EB2D-3456-EE2C-69D311E19EA0}|GLMS.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T11:42:07.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-14T11:42:00.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewStart.cshtml",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-14T11:41:35.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-14T11:41:33.989Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\ErrorViewModel.cs",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T11:41:32.686Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "appsettings.Development.json",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\appsettings.Development.json",
+              "RelativeToolTip": "appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-14T11:41:18.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-05-14T11:41:13.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\frank\\source\\repos\\EFTECH05\\Logistics-Management-System-School-Project-ASP.net.core-Part2\\GLMS\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-14T11:41:38.001Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
