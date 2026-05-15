@@ -1,0 +1,198 @@
+﻿@{
+    ViewData["Title"] = "Quote";
+}
+
+<!-- Page Header Start -->
+<div class="container-fluid page-header py-5 header-img">
+    <div class="container py-5 text-center text-white">
+        <h1 class="display-3 mb-3 animate fw-bold">Get a Quote</h1>
+        <nav>
+            <ol class="breadcrumb justify-content-center">
+                <li class="breadcrumb-item">
+                    <a class="text-white" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="breadcrumb-item text-white active">Quote</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Quote Start -->
+<div class="container-xxl py-5 position-relative">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+
+            <!-- LEFT SIDE -->
+            <div class="col-lg-5 animate">
+                <h6 class="text-primary text-uppercase mb-3 fw-bold">Get A Quote</h6>
+                <h1 class="mb-4 fw-bold">Fast & Reliable Pricing</h1>
+                <p class="mb-4 text-muted">
+                    We provide professional logistics solutions tailored to your needs.
+                    Get instant pricing and world-class shipping services.
+                </p>
+
+                <div class="d-flex align-items-center">
+                    <div class="icon-circle">
+                        <i class="fa fa-headphones text-white"></i>
+                    </div>
+                    <div class="ps-3">
+                        <h6 class="mb-1">Call for any query</h6>
+                        <h4 class="text-primary m-0">+27 00 000 0000</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FORM -->
+            <div class="col-lg-7 animate">
+                <div class="glass-form p-5 rounded">
+
+                    <form>
+                        <div class="row g-4">
+
+                            <div class="col-12 col-sm-6 form-floating">
+                                <input type="text" class="form-control custom-input" placeholder="Name">
+                                <label>Your Name</label>
+                            </div>
+
+                            <div class="col-12 col-sm-6 form-floating">
+                                <input type="email" class="form-control custom-input" placeholder="Email">
+                                <label>Your Email</label>
+                            </div>
+
+                            <div class="col-12 col-sm-6 form-floating">
+                                <input type="text" class="form-control custom-input" placeholder="Phone">
+                                <label>Your Mobile</label>
+                            </div>
+
+                            <div class="col-12 col-sm-6">
+                                <select class="form-select custom-input">
+                                    <option selected>Select Freight</option>
+                                    <option>Air Freight</option>
+                                    <option>Sea Freight</option>
+                                    <option>Road Freight</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 form-floating">
+                                <textarea class="form-control custom-input" style="height:100px" placeholder="Note"></textarea>
+                                <label>Special Note</label>
+                            </div>
+
+                            <div class="col-12">
+                                <button class="btn btn-gradient w-100 py-3">
+                                    🚀 Submit Quote Request
+                                </button>
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- BACKGROUND SHAPE -->
+    <div class="bg-shape"></div>
+</div>
+<!-- Quote End -->
+
+
+<style>
+
+/* HEADER */
+.header-img {
+    background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+                url('/img/carousel-1.jpg') center/cover no-repeat;
+}
+
+/* GLASS FORM */
+.glass-form {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+/* INPUTS */
+.custom-input {
+    border-radius: 10px;
+    border: none;
+    transition: 0.3s;
+}
+
+.custom-input:focus {
+    box-shadow: 0 0 12px rgba(0,123,255,0.4);
+    transform: scale(1.02);
+}
+
+/* ICON */
+.icon-circle {
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BUTTON */
+.btn-gradient {
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.btn-gradient:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* BACKGROUND SHAPE */
+.bg-shape {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0,123,255,0.3), transparent);
+    z-index: -1;
+}
+
+/* ANIMATION */
+.animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.animate.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const elements = document.querySelectorAll(".animate");
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("show");
+            }
+        });
+    }, { threshold: 0.2 });
+
+    elements.forEach(el => observer.observe(el));
+});
+</script>
