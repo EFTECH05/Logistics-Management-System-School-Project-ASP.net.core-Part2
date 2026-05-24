@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<<<<<<< HEAD
+
     <title>@ViewData["Title"] - Logistica</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
@@ -26,7 +26,6 @@
             position: relative;
         }
 
-        /* TRACKING BAR */
         .tracking-bar {
             background: #0b0f1a;
             padding: 10px 0;
@@ -71,7 +70,6 @@
         .step i { font-size: 18px; color: #6c757d; }
         .step.active i { color: #ffc107; }
 
-        /* FOOTER */
         .footer-dark {
             background: linear-gradient(135deg, #0b0f1a, #111827, #0b0f1a);
             color: white;
@@ -88,7 +86,6 @@
             transform: translateX(5px);
         }
 
-        /* SOCIAL */
         .social-icon {
             font-size: 20px;
             color: white;
@@ -101,7 +98,6 @@
             transform: scale(1.2);
         }
 
-        /* ROBOT BUTTON */
         .robot-btn {
             position: fixed;
             bottom: 20px;
@@ -116,15 +112,8 @@
             font-size: 28px;
             cursor: pointer;
             z-index: 999;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: 0.3s;
         }
 
-        .robot-btn:hover {
-            transform: scale(1.1);
-        }
-
-        /* CHAT BOX */
         .chat-box {
             position: fixed;
             bottom: 90px;
@@ -212,20 +201,14 @@
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
-
-                    <!-- UPDATED -->
-                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Services">Services</a></li>
-                  
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Services">Services</a></li>
                     <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="Quote">Quote</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a>
-                    </li>
-                    
+                    <li class="nav-item"><a class="nav-link" asp-controller="Home" asp-action="ContactUs">Contact Us</a></li>
                 </ul>
 
                 <div class="d-flex gap-2">
-                    <a class="btn btn-outline-primary btn-sm">Login</a>
-                    <a class="btn btn-primary btn-sm">Register</a>
+                        <a class="btn btn-outline-primary btn-sm" href="/Auth/Login">Login</a>
+                        <a class="btn btn-primary btn-sm" href="/Auth/Register">Register</a>
                 </div>
 
             </div>
@@ -259,13 +242,6 @@
                 <h6 class="text-warning">Contact</h6>
                 <p>📍 Cape Town</p>
                 <p>📞 +27 00 000 0000</p>
-
-                <div class="d-flex gap-3 mt-2">
-                    <i class="bi bi-facebook social-icon"></i>
-                    <i class="bi bi-instagram social-icon"></i>
-                    <i class="bi bi-linkedin social-icon"></i>
-                    <i class="bi bi-twitter-x social-icon"></i>
-                </div>
             </div>
 
             <div class="col-md-3">
@@ -277,11 +253,11 @@
         </div>
 
         <hr class="border-secondary mt-4" />
-        <div class="text-center">© 2026 Logistica  Developed by Franklin Ngangu </div>
+        <div class="text-center">© 2026 Logistica - Developed by Franklin Ngangu</div>
     </div>
 </footer>
 
-<!-- ROBOT CHAT -->
+<!-- CHAT -->
 <div class="robot-btn" onclick="toggleChat()">🤖</div>
 
 <div class="chat-box" id="chatBox">
@@ -297,7 +273,6 @@
     </div>
 </div>
 
-<!-- SCRIPT -->
 <script>
 function toggleChat() {
     let box = document.getElementById("chatBox");
@@ -322,52 +297,8 @@ function sendMsg() {
 
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 
-</body>
-</html>
-=======
-    <title>@ViewData["Title"] - GLMS</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/GLMS.styles.css" asp-append-version="true" />
-</head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">GLMS</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+@await RenderSectionAsync("Scripts", required: false)
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - GLMS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
->>>>>>> f91a0100db3c41b65957dbc13a57bed334be3bd4
+

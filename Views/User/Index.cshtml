@@ -1,0 +1,280 @@
+﻿@using Microsoft.AspNetCore.Http
+@using WebApplication1.Models
+@model IEnumerable<WebApplication1.Models.ServiceRequest>
+
+@{
+    Layout = null;
+
+    var username = Context.Session.GetString("User") ?? "User";
+    var contracts = ViewBag.Contracts as List<Contract>;
+
+    var pending = Model.Count(x => x.Status == "Pending");
+    var approved = Model.Count(x => x.Status == "Approved");
+    var rejected = Model.Count(x => x.Status != "Pending" && x.Status != "Approved");
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>User Dashboard V2</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', sans-serif;
+        }
+
+        body {
+        min-height: 100vh;
+        background: #0f172a;
+        color: white;
+        padding: 30px;
+        transition: 0.3s;
+        }
+
+        body.light {
+        background: #f1f5f9;
+        color: #0f172a;
+        }
+
+        .container {
+        max-width: 1200px;
+        margin: auto;
+        }
+
+        /* NAVBAR */
+        .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 22px;
+        border-radius: 14px;
+        background: rgba(255,255,255,0.06);
+        margin-bottom: 20px;
+        }
+
+        .nav button {
+        margin-left: 10px;
+        padding: 10px 14px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        }
+
+        .logout {
+        background: #ef4444;
+        color: white;
+        }
+
+        .toggle {
+        background: #22c55e;
+        color: white;
+        }
+
+        /* GRID */
+        .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        }
+
+        .card {
+        padding: 20px;
+        border-radius: 16px;
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(10px);
+        }
+
+        /* FORM */
+        input, select {
+        width: 100%;
+        padding: 10px;
+        margin-top: 8px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        border: none;
+        }
+
+        .btn {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background: #22c55e;
+        color: white;
+        cursor: pointer;
+        }
+
+        /* CHART */
+        .chart-box {
+        height: 260px;
+        }
+
+        /* TOAST */
+        .toast {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #22c55e;
+        padding: 12px 18px;
+        border-radius: 10px;
+        display: none;
+        }
+
+        /* SERVICES SECTION */
+        .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+        margin-top: 15px;
+        }
+
+        .service-card {
+        padding: 14px;
+        border-radius: 12px;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+        font-size: 13px;
+        transition: 0.2s ease;
+        }
+
+        .service-card:hover {
+        transform: translateY(-4px);
+        background: rgba(34,197,94,0.15);
+        border-color: #22c55e;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <div class="nav">
+            <div>
+                <h3>Welcome, @username 👋</h3>
+            </div>
+
+            <div>
+                <button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+                <form method="post" asp-controller="Auth" asp-action="Logout" style="display:inline;">
+                    @Html.AntiForgeryToken()
+                    <button class="logout">Sign Out</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid">
+
+            <!-- FORM -->
+            <div class="card">
+                <h3>Create Service Request</h3>
+
+                <form method="post" asp-controller="ServiceRequests" asp-action="Create">
+                    @Html.AntiForgeryToken()
+
+                    <label>Contract</label>
+                    <select name="ContractId" required>
+                        <option value="">Select a contract type. Check your Gmail for contract details</option>
+                        @foreach (var c in contracts)
+                        {
+                            <option value="@c.ContractId">@c.Client.Name - @c.Status</option>
+                        }
+                    </select>
+
+                    <label>Description</label>
+                    <input name="Description" required />
+
+                    <label>Cost USD</label>
+                    <input id="usd" name="CostUSD" type="number" step="0.01" required />
+
+                    <input type="hidden" id="zar" name="CostZAR" />
+
+                    <button class="btn" type="submit" onclick="showToast()">Submit</button>
+                </form>
+            </div>
+
+            <!-- CHART -->
+            <div class="card chart-box">
+                <h3>Request Status Overview</h3>
+                <canvas id="chart"></canvas>
+            </div>
+
+        </div>
+
+        <!-- ⭐ SERVICES SECTION (KEPT) -->
+        <div class="card" style="margin-top:20px;">
+            <h3>Our Services</h3>
+
+            <p style="opacity:0.7; margin-top:5px;">
+                Global logistics solutions designed for speed, safety, and reliability
+            </p>
+
+            <h4 style="margin-top:15px;">Complete Logistics & Supply Chain Solutions</h4>
+            <p style="opacity:0.6; margin-bottom:15px;">
+                From air freight to warehousing, we deliver end-to-end logistics services worldwide.
+            </p>
+
+            <div class="services-grid">
+
+                <div class="service-card">✈️ Fast international air cargo delivery</div>
+                <div class="service-card">🌊 Global sea shipping solutions</div>
+                <div class="service-card">🚚 Reliable truck transportation</div>
+                <div class="service-card">🚆 Eco-friendly rail logistics</div>
+                <div class="service-card">🏬 Secure storage facilities</div>
+                <div class="service-card">📦 Fast import/export processing</div>
+                <div class="service-card">⚡ Same-day & next-day delivery</div>
+                <div class="service-card">🌡️ Temperature-controlled transport</div>
+                <div class="service-card">🛒 Online store fulfillment</div>
+                <div class="service-card">📊 End-to-end logistics planning</div>
+                <div class="service-card">📦 Oversized shipment handling</div>
+                <div class="service-card">📍 Real-time shipment tracking</div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">Request submitted successfully!</div>
+
+    <script>
+        document.getElementById("usd").addEventListener("input", function () {
+        document.getElementById("zar").value = (this.value * 18).toFixed(2);
+        });
+
+        function showToast() {
+        let t = document.getElementById("toast");
+        t.style.display = "block";
+        setTimeout(() => t.style.display = "none", 2000);
+        }
+
+        function toggleTheme() {
+        document.body.classList.toggle("light");
+        }
+
+        const ctx = document.getElementById('chart');
+
+        new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+        labels: ['Pending', 'Approved', 'Rejected'],
+        datasets: [{
+        data: [@pending, @approved, @rejected],
+        backgroundColor: ['#facc15', '#22c55e', '#ef4444']
+        }]
+        }
+        });
+    </script>
+
+</body>
+</html>

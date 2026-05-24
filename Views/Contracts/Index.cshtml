@@ -1,0 +1,329 @@
+﻿@model IEnumerable<WebApplication1.Models.Contract>
+@using System.Linq
+
+@{
+    Layout = null;
+
+    var total = Model.Count();
+    var active = Model.Count(x => x.Status == "Active");
+    var draft = Model.Count(x => x.Status == "Draft");
+    var pending = Model.Count(x => x.Status == "Pending");
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top, #0f172a, #020617);
+        color: white;
+        padding: 35px;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        animation: fadeIn 0.5s ease;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+        .header h2 {
+            font-size: 28px;
+        }
+
+    .btn {
+        padding: 10px 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+        color: white;
+        display: inline-block;
+    }
+
+    .add {
+        background: linear-gradient(90deg,#22c55e,#16a34a);
+    }
+
+    .back {
+        background: linear-gradient(90deg,#64748b,#334155);
+        margin-right: 10px;
+    }
+
+    .btn:hover {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .stat-card {
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px);
+        padding: 18px;
+        border-radius: 16px;
+        text-align: center;
+    }
+
+        .stat-card h3 {
+            opacity: 0.7;
+            font-size: 13px;
+        }
+
+        .stat-card h1 {
+            margin-top: 10px;
+            font-size: 26px;
+        }
+
+    .blue {
+        color: #60a5fa;
+    }
+
+    .green {
+        color: #22c55e;
+    }
+
+    .yellow {
+        color: #facc15;
+    }
+
+    .gray {
+        color: #94a3b8;
+    }
+
+    .filters {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    input, select {
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        width: 250px;
+    }
+
+    .table-card {
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px);
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th {
+        background: rgba(255,255,255,0.1);
+        padding: 14px;
+        text-align: left;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    td {
+        padding: 14px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    tr:hover {
+        background: rgba(255,255,255,0.05);
+    }
+
+    .badge {
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .active {
+        background: #22c55e;
+    }
+
+    .draft {
+        background: #64748b;
+    }
+
+    .pending {
+        background: #facc15;
+        color: black;
+    }
+
+    .action a {
+        padding: 6px 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+        margin-right: 5px;
+    }
+
+    .view {
+        background: #3b82f6;
+        color: white;
+    }
+
+    .delete {
+        background: #ef4444;
+        color: white;
+    }
+
+    .pdf {
+        background: #22c55e;
+        color: white;
+        padding: 6px 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+</style>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div>
+            <h2>📦 Contracts Dashboard</h2>
+            <p style="opacity:0.7;">Manage logistica contracts in real time</p>
+        </div>
+
+        <div>
+            <a href="/Contracts/Create" class="btn add">+ New Contract</a>
+            <a href="/Admin/Index" class="btn back">← Back</a>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats">
+        <div class="stat-card"><h3>Total</h3><h1 class="blue">@total</h1></div>
+        <div class="stat-card"><h3>Active</h3><h1 class="green">@active</h1></div>
+        <div class="stat-card"><h3>Pending</h3><h1 class="yellow">@pending</h1></div>
+        <div class="stat-card"><h3>Draft</h3><h1 class="gray">@draft</h1></div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters">
+        <input type="text" id="searchInput" placeholder="Search client..." />
+        <select id="statusFilter">
+            <option value="">All Status</option>
+            <option value="Active">Active</option>
+            <option value="Pending">Pending</option>
+            <option value="Draft">Draft</option>
+        </select>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-card">
+        <table id="contractsTable">
+            <thead>
+                <tr>
+                    <th> Contact type</th>
+                    <th>Start</th>
+                    <th>End</th>
+                    <th>Status</th>
+                    <th>Service</th>
+                    <th>PDF</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="client">@item.Client?.Name</td>
+                        <td>@item.StartDate.ToShortDateString()</td>
+                        <td>@item.EndDate.ToShortDateString()</td>
+
+                        <td>
+                            <span class="badge @item.Status?.ToLower()">
+                                @item.Status
+                            </span>
+                        </td>
+
+                        <td>@item.ServiceLevel</td>
+
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.PdfPath))
+                            {
+                                <a class="pdf"
+                                   href="@Url.Content("~" + item.PdfPath)"
+                                   target="_blank"
+                                   download>
+                                    Download
+                                </a>
+                            }
+                            else
+                            {
+                                <span style="opacity:0.5;">No file</span>
+                            }
+                        </td>
+
+                        <td class="action">
+                            <a class="view" href="/Contracts/Details/@item.ContractId">View</a>
+ 
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const statusFilter = document.getElementById("statusFilter");
+    const table = document.getElementById("contractsTable");
+
+    function filterTable() {
+        const search = searchInput.value.toLowerCase();
+        const status = statusFilter.value.toLowerCase();
+
+        const rows = table.getElementsByTagName("tr");
+
+        for (let i = 1; i < rows.length; i++) {
+            const client = rows[i].querySelector(".client")?.innerText.toLowerCase();
+            const rowStatus = rows[i].innerText.toLowerCase();
+
+            let show = true;
+
+            if (search && !client.includes(search)) show = false;
+            if (status && !rowStatus.includes(status)) show = false;
+
+            rows[i].style.display = show ? "" : "none";
+        }
+    }
+
+    searchInput.addEventListener("input", filterTable);
+    statusFilter.addEventListener("change", filterTable);
+</script>

@@ -1,0 +1,63 @@
+﻿@model WebApplication1.Models.Contract
+
+@{
+    Layout = null;
+}
+
+<style>
+    body {
+        font-family: Arial;
+        background: #0f172a;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .card {
+        background: rgba(255,255,255,0.08);
+        padding: 30px;
+        border-radius: 15px;
+        width: 500px;
+    }
+
+    a {
+        color: #22c55e;
+    }
+
+    .btn {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        text-decoration: none;
+        color: white;
+        background: #3b82f6;
+    }
+</style>
+
+<div class="card">
+    <h2>Contract Details</h2>
+
+    <p><b>Contact type:</b> @Model.Client?.Name</p>
+    <p><b>Start:</b> @Model.StartDate</p>
+    <p><b>End:</b> @Model.EndDate</p>
+    <p><b>Status:</b> @Model.Status</p>
+    <p><b>Service:</b> @Model.ServiceLevel</p>
+
+    <p><b>PDF:</b></p>
+
+    @if (!string.IsNullOrEmpty(Model.PdfPath))
+    {
+        <a href="@Url.Content(Model.PdfPath)" target="_blank">Open PDF</a>
+    }
+    else
+    {
+        <span>No file uploaded</span>
+    }
+
+    <br />
+
+    <a class="btn" href="/Contracts/Index">Back</a>
+</div>

@@ -1,0 +1,134 @@
+﻿@model WebApplication1.Models.Client
+
+@{
+    Layout = null; // ❗ removes navbar/footer
+    ViewData["Title"] = "Create Client";
+}
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top, #1e293b, #0f172a);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        width: 450px;
+        padding: 30px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        border: none;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        outline: none;
+        transition: 0.3s;
+    }
+
+        .form-control::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .form-control:focus {
+            background: rgba(255,255,255,0.18);
+            transform: scale(1.02);
+        }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: none;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+        color: white;
+    }
+
+    .btn-save {
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+    }
+
+        .btn-save:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+    .back {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #fbbf24;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        .back:hover {
+            text-decoration: underline;
+        }
+
+    .error {
+        color: #ff6b6b;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="card">
+
+    <h2>➕ Create Client</h2>
+
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="error">Please fill all required fields</div>
+    }
+
+    <form asp-action="Create" method="post">
+
+        <input asp-for="Name" class="form-control" placeholder="Contract Details" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+        <input asp-for="ContactDetails" class="form-control" placeholder="Client Name" />
+        <span asp-validation-for="ContactDetails" class="text-danger"></span>
+
+        <input asp-for="Region" class="form-control" placeholder="Region" />
+        <span asp-validation-for="Region" class="text-danger"></span>
+
+        <button type="submit" class="btn btn-save">Save Client</button>
+
+    </form>
+
+    <a href="/Clients/Index" class="back">← Back to Clients</a>
+
+</div>
