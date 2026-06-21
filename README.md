@@ -1,4 +1,7 @@
 <img width="1357" height="669" alt="image" src="https://github.com/user-attachments/assets/75a3bd5f-4cb7-4d7c-93d5-09d954c5464f" />
+Watch the full system demonstration:
+https://www.youtube.com/watch?v=tO32RKTxETs&t=727s
+
 
 🚀 Logistics Management System (GLMS)
 
