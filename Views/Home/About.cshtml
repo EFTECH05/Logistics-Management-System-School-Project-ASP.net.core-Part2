@@ -1,0 +1,215 @@
+﻿@{
+    ViewData["Title"] = "About";
+}
+
+<!-- ================= PAGE HEADER ================= -->
+<div class="container-fluid p-0 mb-5 fade-in">
+
+    <div class="position-relative">
+
+        <img src="~/img/carousel-2.jpg"
+             class="w-100"
+             style="height: 450px; object-fit: cover;"
+             alt="Logistica Banner" />
+
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+             style="background: rgba(0,0,0,0.55);">
+
+            <div class="container h-100 d-flex flex-column justify-content-center">
+
+                <h1 class="text-white display-4 fw-bold">
+                    About Us
+                </h1>
+
+                <nav>
+                    <ol class="breadcrumb bg-transparent p-0 m-0">
+
+                        <li class="breadcrumb-item">
+                            <a asp-controller="Home" asp-action="Index"
+                               class="text-white text-decoration-none">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="breadcrumb-item text-white">
+                            About
+                        </li>
+
+                    </ol>
+                </nav>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= ABOUT SECTION ================= -->
+<div class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+            <img src="~/img/about.jpg"
+                 class="img-fluid rounded shadow hover-zoom"
+                 alt="About Logistica" />
+        </div>
+
+        <div class="col-lg-6">
+
+            <h6 class="text-primary text-uppercase">About Us</h6>
+
+            <h1 class="mb-4">
+                Quick Transport & Logistics Solutions
+            </h1>
+
+            <p>
+                Logistica is a global logistics company providing fast, secure,
+                and reliable transport services across air, sea, and road networks.
+            </p>
+
+            <p>
+                We specialize in end-to-end supply chain management, real-time tracking,
+                and safe delivery of goods worldwide.
+            </p>
+
+            <a asp-controller="Home" asp-action="Services"
+               class="btn btn-primary px-4 py-2 mt-2">
+                Explore Services
+            </a>
+
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= STATS SECTION ================= -->
+<div class="container py-5 text-center">
+
+    <div class="row g-4">
+
+        <div class="col-md-3">
+            <h1 class="text-primary counter">1200+</h1>
+            <p>Delivered Packages</p>
+        </div>
+
+        <div class="col-md-3">
+            <h1 class="text-primary">500+</h1>
+            <p>Happy Clients</p>
+        </div>
+
+        <div class="col-md-3">
+            <h1 class="text-primary">50+</h1>
+            <p>Countries Covered</p>
+        </div>
+
+        <div class="col-md-3">
+            <h1 class="text-primary">24/7</h1>
+            <p>Support Available</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ================= FEATURES ================= -->
+<div class="container py-5">
+
+    <div class="row align-items-center g-5">
+
+        <div class="col-lg-6">
+
+            <h6 class="text-primary text-uppercase">Our Features</h6>
+
+            <h2 class="mb-4">Trusted Logistics Company Since 1990</h2>
+
+            <div class="mb-4">
+                <h5>🌍 Worldwide Service</h5>
+                <p>We operate globally with strong logistics networks.</p>
+            </div>
+
+            <div class="mb-4">
+                <h5>🚚 On-Time Delivery</h5>
+                <p>We ensure fast and reliable delivery for all shipments.</p>
+            </div>
+
+            <div class="mb-4">
+                <h5>📞 24/7 Support</h5>
+                <p>Our support team is always available for assistance.</p>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+            <img src="~/img/feature.jpg"
+                 class="img-fluid rounded shadow hover-zoom"
+                 alt="Features" />
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= MISSION & VISION ================= -->
+<div class="container py-5">
+
+    <div class="row g-4 text-center">
+
+        <div class="col-md-6">
+            <div class="p-4 shadow rounded bg-light">
+                <h4 class="text-primary">Our Mission</h4>
+                <p>
+                    To provide fast, secure, and affordable logistics solutions
+                    that connect businesses worldwide efficiently.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="p-4 shadow rounded bg-light">
+                <h4 class="text-primary">Our Vision</h4>
+                <p>
+                    To become a global leader in logistics through innovation,
+                    technology, and customer satisfaction.
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= VALUES ================= -->
+<div class="container py-5 text-center">
+
+    <h2 class="mb-4">Our Core Values</h2>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <h5>Integrity</h5>
+            <p>We operate with honesty and transparency.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h5>Efficiency</h5>
+            <p>We optimize logistics for maximum speed and accuracy.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h5>Customer Focus</h5>
+            <p>We prioritize client satisfaction above all.</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= SIMPLE CSS (NO LIBRARIES) ================= -->
+<style>
+    .hover-zoom {
+        transition: transform 0.4s ease;
+    }
+
+    .hover-zoom:hover {
+        transform: scale(1.03);
+    }
+</style>

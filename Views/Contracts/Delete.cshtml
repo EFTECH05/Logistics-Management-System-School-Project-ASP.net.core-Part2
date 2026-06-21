@@ -1,0 +1,146 @@
+﻿@model WebApplication1.Models.Contract
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Delete Contract</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', sans-serif;
+            }
+
+            body {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: radial-gradient(circle at top, #1e293b, #0f172a);
+                color: white;
+            }
+
+            .card {
+                width: 420px;
+                padding: 30px;
+                border-radius: 18px;
+                background: rgba(255,255,255,0.08);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+                text-align: center;
+                animation: fadeIn 0.5s ease;
+            }
+
+            @@keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            h2 {
+                font-size: 22px;
+                margin-bottom: 10px;
+                color: #ef4444;
+            }
+
+            .warning {
+                font-size: 13px;
+                opacity: 0.8;
+                margin-bottom: 20px;
+            }
+
+            .client {
+                font-size: 18px;
+                font-weight: 600;
+                margin: 15px 0;
+                color: #facc15;
+            }
+
+            .btn-danger {
+                background: linear-gradient(90deg, #ef4444, #dc2626);
+                color: white;
+                padding: 12px;
+                border: none;
+                border-radius: 10px;
+                width: 100%;
+                cursor: pointer;
+                font-weight: 600;
+                transition: 0.3s;
+            }
+
+                .btn-danger:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 10px 25px rgba(239,68,68,0.4);
+                }
+
+            .btn-cancel {
+                display: inline-block;
+                margin-top: 15px;
+                color: white;
+                text-decoration: none;
+                opacity: 0.8;
+                font-size: 13px;
+            }
+
+                .btn-cancel:hover {
+                    opacity: 1;
+                }
+
+            .icon {
+                font-size: 40px;
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="icon">⚠️</div>
+
+        <h2>Delete Contract</h2>
+
+        <p class="warning">
+            This action is permanent and cannot be undone.
+        </p>
+
+        <div class="client">
+            @Model.Client?.Name
+        </div>
+
+        <p style="opacity:0.7;">
+            Contract ID: #@Model.ContractId
+        </p>
+
+        <form asp-action="DeleteConfirmed" method="post">
+            <input type="hidden" asp-for="ContractId" />
+
+            <button type="submit" class="btn-danger">
+                Yes, Delete Contract
+            </button>
+        </form>
+
+        <a href="/Contracts/Index" class="btn-cancel">
+            Cancel and Go Back
+        </a>
+
+    </div>
+
+</body>
+</html>

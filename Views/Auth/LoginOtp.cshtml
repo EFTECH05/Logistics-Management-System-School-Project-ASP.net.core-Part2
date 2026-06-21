@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Login OTP";
+}
+
+<h2>Enter OTP sent to your email</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div style="color:red">@ViewBag.Error</div>
+}
+
+<form method="post">
+    <input name="otp" placeholder="Enter OTP" />
+    <button type="submit">Verify</button>
+</form>

@@ -1,0 +1,269 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+
+    <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                background: radial-gradient(circle at top, #111111, #000000);
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            /* ===== BACKGROUND ICONS ===== */
+            .bg-icons {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: 0;
+            }
+
+            .icon {
+                position: absolute;
+                font-size: 26px;
+                opacity: 0.08;
+                animation: floatUp 14s linear infinite;
+                color: #ff7a00;
+            }
+
+            @@keyframes floatUp {
+                0% {
+                    transform: translateY(100vh) rotate(0deg);
+                }
+
+                100% {
+                    transform: translateY(-10vh) rotate(360deg);
+                }
+            }
+
+            /* ===== MAIN CARD ===== */
+            .container {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                width: 1000px;
+                max-width: 95%;
+                border-radius: 20px;
+                overflow: hidden;
+                background: rgba(255, 122, 0, 0.05);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+                border: 1px solid rgba(255, 122, 0, 0.2);
+            }
+
+            /* ===== LEFT SIDE ===== */
+            .left {
+                flex: 1;
+                padding: 60px;
+                background: linear-gradient(135deg, #000000, #1a1a1a);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                border-right: 2px solid rgba(255,122,0,0.2);
+            }
+
+            .logo {
+                width: 120px;
+                margin-bottom: 20px;
+                filter: drop-shadow(0 10px 20px rgba(255,122,0,0.3));
+            }
+
+            .left h1 {
+                color: #ff7a00;
+                margin-bottom: 10px;
+            }
+
+            .left p {
+                text-align: center;
+                opacity: 0.8;
+                max-width: 300px;
+            }
+
+            /* ===== RIGHT SIDE ===== */
+            .right {
+                flex: 1;
+                padding: 60px;
+            }
+
+            .title {
+                font-size: 30px;
+                font-weight: bold;
+                color: #ff7a00;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                opacity: 0.7;
+                margin-bottom: 25px;
+            }
+
+            .field {
+                margin-bottom: 18px;
+            }
+
+                .field input {
+                    width: 100%;
+                    padding: 14px;
+                    border-radius: 10px;
+                    border: 1px solid rgba(255,122,0,0.3);
+                    background: rgba(0,0,0,0.6);
+                    color: white;
+                    outline: none;
+                }
+
+                    .field input:focus {
+                        border-color: #ff7a00;
+                        box-shadow: 0 0 10px rgba(255,122,0,0.3);
+                    }
+
+            /* ===== LOGIN BUTTON ===== */
+            .btn {
+                width: 100%;
+                padding: 14px;
+                border-radius: 10px;
+                border: none;
+                background: #ff7a00;
+                color: black;
+                font-weight: bold;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+                .btn:hover {
+                    background: #ff8c1a;
+                    transform: scale(1.03);
+                }
+
+            /* ===== CREATE ACCOUNT BUTTON ===== */
+            .create-btn {
+                display: block;
+                text-align: center;
+                margin-top: 12px;
+                padding: 14px;
+                border-radius: 10px;
+                border: 1px solid rgba(255,122,0,0.4);
+                color: #ff7a00;
+                text-decoration: none;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+
+                .create-btn:hover {
+                    background: rgba(255,122,0,0.1);
+                }
+
+            /* ===== BACK BUTTON ===== */
+            .back-btn {
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                padding: 10px 14px;
+                border-radius: 8px;
+                background: rgba(255,122,0,0.15);
+                color: #ff7a00;
+                text-decoration: none;
+                font-size: 13px;
+                border: 1px solid rgba(255,122,0,0.3);
+                z-index: 3;
+            }
+
+                .back-btn:hover {
+                    background: rgba(255,122,0,0.25);
+                }
+
+            /* ERROR */
+            .error {
+                background: rgba(255,122,0,0.15);
+                padding: 10px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+                color: #ffb366;
+                border: 1px solid rgba(255,122,0,0.3);
+            }
+
+            @@media (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                }
+
+                .left {
+                    border-right: none;
+                    border-bottom: 2px solid rgba(255,122,0,0.2);
+                }
+            }
+    </style>
+</head>
+
+<body>
+
+    <!-- BACKGROUND ICONS -->
+    <div class="bg-icons">
+        <div class="icon" style="left:10%;">🚚</div>
+        <div class="icon" style="left:25%;">📦</div>
+        <div class="icon" style="left:40%;">🚛</div>
+        <div class="icon" style="left:60%;">📍</div>
+        <div class="icon" style="left:75%;">📦</div>
+        <div class="icon" style="left:90%;">🚚</div>
+    </div>
+
+    <div class="container">
+
+        <!-- BACK BUTTON -->
+        <a href="/" class="back-btn">← Back</a>
+
+        <!-- LEFT -->
+        <div class="left">
+            <img src="~/img/logistic.png" class="logo" />
+            <h1>Logistica</h1>
+            <p>Fast, secure logistics management system for modern businesses.</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <div class="title">Welcome Back</div>
+            <div class="subtitle">Login to your dashboard</div>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="error">@ViewBag.Error</div>
+            }
+
+            <form method="post" asp-controller="Auth" asp-action="Login">
+
+                <div class="field">
+                    <input name="email" placeholder="Email" required />
+                </div>
+
+                <div class="field">
+                    <input name="password" type="password" placeholder="Password" required />
+                </div>
+
+                <button class="btn" type="submit">Login</button>
+
+            </form>
+
+            <!-- CREATE ACCOUNT -->
+            <a href="/Auth/Register" class="create-btn">Create Account</a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

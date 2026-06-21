@@ -1,0 +1,254 @@
+﻿@using WebApplication1.Data
+@inject AppDbContext _context
+
+@{
+    Layout = null; // 🔥 removes navbar/footer completely
+    ViewData["Title"] = "Admin Dashboard";
+
+    var role = Context.Session.GetString("Role");
+
+    if (role != "Admin")
+    {
+        <div style="color:white; text-align:center; margin-top:100px;">
+            <h2>Access Denied ❌</h2>
+            <p>You are not authorized to view this page.</p>
+        </div>
+        return;
+    }
+
+    // LIVE STATS
+    var totalUsers = _context.Users.Count();
+    var totalClients = _context.Clients.Count();
+    var totalContracts = _context.Contracts.Count();
+    var totalRequests = _context.ServiceRequests.Count();
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Admin Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', sans-serif;
+            }
+
+            body {
+                min-height: 100vh;
+                background: radial-gradient(circle at top, #1e293b, #0f172a);
+                color: white;
+                padding: 40px;
+            }
+
+            .container {
+                max-width: 1200px;
+                margin: auto;
+                animation: fadeIn 0.6s ease;
+            }
+
+            @@keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            /* HEADER */
+            .header {
+                text-align: center;
+                margin-bottom: 30px;
+            }
+
+                .header h1 {
+                    font-size: 32px;
+                }
+
+                .header p {
+                    opacity: 0.7;
+                    margin-top: 5px;
+                }
+
+            /* GLASS CARDS */
+            .cards {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .card {
+                background: rgba(255,255,255,0.08);
+                backdrop-filter: blur(20px);
+                border-radius: 18px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+                transition: 0.3s;
+            }
+
+                .card:hover {
+                    transform: translateY(-5px);
+                }
+
+                .card h3 {
+                    font-size: 14px;
+                    opacity: 0.8;
+                }
+
+                .card h2 {
+                    margin-top: 10px;
+                    font-size: 28px;
+                }
+
+            .blue {
+                color: #60a5fa;
+            }
+
+            .green {
+                color: #22c55e;
+            }
+
+            .yellow {
+                color: #facc15;
+            }
+
+            .red {
+                color: #ef4444;
+            }
+
+            /* ACTION BUTTONS */
+            .actions {
+                margin-top: 40px;
+            }
+
+                .actions h3 {
+                    margin-bottom: 15px;
+                }
+
+            .btn-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+            }
+
+            .btn {
+                display: block;
+                padding: 12px;
+                text-align: center;
+                border-radius: 12px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: 0.3s;
+                color: white;
+            }
+
+            .primary {
+                background: #3b82f6;
+            }
+
+            .success {
+                background: #22c55e;
+            }
+
+            .warning {
+                background: #facc15;
+                color: black;
+            }
+
+            .danger {
+                background: #ef4444;
+            }
+
+            .btn:hover {
+                transform: scale(1.05);
+                opacity: 0.9;
+            }
+
+            /* LOGOUT TOP */
+            .top-bar {
+                text-align: right;
+                margin-bottom: 20px;
+            }
+
+            .logout {
+                background: #ef4444;
+                padding: 10px 16px;
+                border-radius: 10px;
+                text-decoration: none;
+                color: white;
+                font-weight: bold;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <a href="/Auth/Logout" class="logout">Logout</a>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>Admin Dashboard 👨‍💼</h1>
+            <p>Manage your logistics system efficiently</p>
+        </div>
+
+        <!-- STATS -->
+        <div class="cards">
+
+            <div class="card">
+                <h3>Total Users</h3>
+                <h2 class="blue">@totalUsers</h2>
+            </div>
+
+            <div class="card">
+                <h3>Clients</h3>
+                <h2 class="green">@totalClients</h2>
+            </div>
+
+            <div class="card">
+                <h3>Contracts</h3>
+                <h2 class="yellow">@totalContracts</h2>
+            </div>
+
+            <div class="card">
+                <h3>Service Requests</h3>
+                <h2 class="red">@totalRequests</h2>
+            </div>
+
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="actions">
+
+            <h3>Quick Actions</h3>
+
+            <div class="btn-grid">
+
+                <a href="/Clients/Index" class="btn primary">Manage Clients</a>
+                <a href="/Contracts/Index" class="btn success">Manage Contracts</a>
+                <a href="/ServiceRequests/Index" class="btn warning">Service Requests</a>
+                <a href="/Auth/Logout" class="btn danger">Logout</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
