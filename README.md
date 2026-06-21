@@ -11,6 +11,11 @@ The **Global Logistics Management System (GLMS)** is an enterprise-level web app
 The system simulates a real-world logistics platform that allows users and administrators to manage contracts, service requests, and operational workflows in a **secure, scalable, and containerized environment**.
 
 ---
+<img width="589" height="283" alt="image" src="https://github.com/user-attachments/assets/e10d7b71-5908-4f0d-89c8-ca98d52b5a21" />
+<img width="595" height="325" alt="image" src="https://github.com/user-attachments/assets/2917f6b9-4edb-41a2-8241-90e1152a3c7c" />
+<img width="610" height="335" alt="image" src="https://github.com/user-attachments/assets/6b5a03c8-4bf7-4bc5-8c29-c7e82d0ee32d" />
+
+
 
 ## 🎯 Objectives
 
@@ -76,6 +81,9 @@ Unit testing was implemented using **xUnit** to ensure system reliability:
 * Business logic validation
 * File upload validation
 * API response verification
+
+  <img width="619" height="469" alt="image" src="https://github.com/user-attachments/assets/8b171470-020f-44e9-bb41-1d345d343135" />
+
 
 ---
 
