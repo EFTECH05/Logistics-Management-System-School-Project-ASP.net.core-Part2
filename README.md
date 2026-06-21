@@ -2,98 +2,155 @@
 
 🚀 Logistics Management System (GLMS)
 
-An enterprise-level ASP.NET Core MVC application designed to modernize and replace manual logistics workflows for Logistica.
+# 🚀 Global Logistics Management System (GLMS)
 
-The system centralizes contract management, automates service requests, and integrates real-time currency conversion using external APIs. It also includes a full unit testing suite using xUnit to ensure system reliability and business rule validation.
+## 📌 Overview
 
-📌 Project Status
+The **Global Logistics Management System (GLMS)** is an enterprise-level web application developed using **ASP.NET Core MVC and Web API**.
 
-🟡 Currently in Development – Part 2: Core Prototype & Unit Testing
+The system simulates a real-world logistics platform that allows users and administrators to manage contracts, service requests, and operational workflows in a **secure, scalable, and containerized environment**.
 
-👨‍💻 Developer
-Name: Franklin Ngangu Simbi
-Project: Enterprise Application Development
-System:  Logistics Management System (GLMS)
-🏗️ System Overview
+---
 
-The GLMS system replaces:
+## 🎯 Objectives
 
-Spreadsheets 📊
-Email-based workflows 📧
-Manual contract tracking 📑
+* Design a scalable logistics management platform
+* Implement secure authentication and role-based access
+* Integrate external APIs for real-time data processing
+* Apply modern DevOps practices using Docker
+* Ensure application reliability through unit testing
 
-With a centralized enterprise web application.
+---
 
-🧱 Architecture
+## 🧠 Key Features
 
-The system follows a Monolithic Architecture with clear separation of concerns:
+* 🔐 Role-Based Access Control (Admin & User)
+* 🔑 OTP-Based Authentication System
+* 📄 Contract Management with PDF Upload
+* 🔄 Service Request Processing
+* 🌍 Currency Conversion API Integration
+* 🔍 Advanced Filtering with LINQ Queries
+* 🧪 Unit Testing with xUnit
+* 📦 Docker Containerization
 
-🔹 Presentation Layer
-ASP.NET Core MVC (Razor Views)
-Responsive UI dashboards
-🔹 Business Logic Layer
-Controllers (Contracts, Service Requests, Users)
-Business rules enforcement
-🔹 Data Access Layer
-Entity Framework Core
-SQL Server Database
-🧩 Core Modules
-👤 Client Management
-Stores client information
-Tracks regions and contact details
-📄 Contract Management
-Handles agreements between clients and logistics provider
-Status tracking: Active, Draft, On Hold, Expired
-📦 Service Requests
-Linked to contracts
-Tracks operational requests
-Stores cost in USD and ZAR
-📌 Business Rules
-✔ Only Active contracts can create service requests
-✔ Expired or On Hold contracts are restricted
-✔ All requests require valid descriptions and cost values
-💱 External API Integration
-Real-time USD → ZAR currency conversion
-Implemented using HttpClient
-Stores both original and converted values
-🧪 Unit Testing (xUnit)
+---
 
-Testing framework used:
+## 🏗️ System Architecture
 
-xUnit
-EF Core InMemory Database
-✔ Covered Tests:
-Currency conversion validation
-Service request creation logic
-Contract validation rules
-File validation security checks
-📊 Results:
-Tests: 4
-Passed: 4
-Failed: 0
-⚡ Technologies Used
-ASP.NET Core MVC (.NET 8 / .NET 10)
-Entity Framework Core
-SQL Server
-xUnit Testing Framework
-C# Async/Await
-HttpClient API Integration
-📈 Key Features
-🔐 Secure MVC architecture
-📦 Service request automation
-📑 Contract lifecycle management
-💱 Live currency conversion (USD → ZAR)
-🧪 Automated unit testing
-⚡ Async performance optimization
-🧠 Software Engineering Principles Applied
-Separation of Concerns (SoC)
-Test-Driven Development (TDD)
-Clean Architecture (Layered Design)
-SOLID principles (Controller + Service structure)
-Data validation & business rule enforcement
-🚀 Future Improvements
-Microservices migration
-Azure deployment (App Service + SQL DB)
-Role-based authentication upgrade (JWT / Identity)
-API-first architecture
-Mobile app integration
+The application follows a **Service-Oriented Architecture (SOA)**:
+
+* **Frontend:** ASP.NET Core MVC
+* **Backend:** ASP.NET Core Web API
+* **Database:** SQL Server
+  <img width="610" height="318" alt="database design" src="https://github.com/user-attachments/assets/d563ea57-1d24-4308-b006-7acae19d1a2c" />
+
+* **Containerization:** Docker & Docker Compose
+
+---
+
+## 🛠️ Technologies Used
+
+* ASP.NET Core MVC
+* ASP.NET Core Web API
+* Entity Framework Core
+* SQL Server
+* Docker & Docker Compose
+* xUnit Testing Framework
+* Git & GitHub
+
+---
+
+## 🔐 Security Implementation
+
+* Parameterized queries to prevent SQL injection
+* Secure authentication with OTP verification
+* Role-based authorization for access control
+* Input validation and file type restrictions (PDF only)
+
+---
+
+## ⚙️ Testing & Quality Assurance
+
+Unit testing was implemented using **xUnit** to ensure system reliability:
+
+* Business logic validation
+* File upload validation
+* API response verification
+
+---
+
+## 🚀 Getting Started
+
+### 📋 Prerequisites
+
+* Visual Studio 2022
+* .NET SDK
+* SQL Server
+* Docker Desktop
+
+---
+
+### ▶️ Run Locally
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/EFTECH05/Logistics-Management-System-School-Project-ASP.net.core-Part2.git
+```
+
+2. Open the solution in Visual Studio
+
+3. Update database connection string
+
+4. Run the application
+
+---
+
+### 🐳 Run with Docker
+<img width="1365" height="721" alt="docker1" src="https://github.com/user-attachments/assets/7548c43f-234b-4efa-97c8-4fa347ce2ded" />
+<img width="1365" height="695" alt="docker2" src="https://github.com/user-attachments/assets/68d36223-d59d-4e7c-b69e-0acf39e8f6de" />
+<img width="1365" height="721" alt="doker3" src="https://github.com/user-attachments/assets/f3ab1aae-89bc-41c0-9d3f-54e0bb73ed99" />
+
+
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## 🎥 Demo
+
+Watch the full system demonstration:
+https://www.youtube.com/watch?v=tO32RKTxETs&t=727s
+
+---
+
+## 📚 What I Learned
+
+* Enterprise-level system design
+* Secure backend development
+* API integration and architecture
+* Automated testing using xUnit
+* Containerization with Docker
+* Version control using Git
+
+---
+
+## 👨‍💻 Author
+
+**Franklin Ngangu**
+Aspiring Software Developer | Backend & Cloud Enthusiast
+
+---
+
+## 📌 Future Improvements
+
+* CI/CD pipeline integration
+* Cloud deployment (Azure)
+* Microservices architecture transition
+* Enhanced UI/UX design
+
+---
+
+## ⭐ If you found this project useful, feel free to star the repository!
