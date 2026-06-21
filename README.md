@@ -144,13 +144,6 @@ Aspiring Software Developer | Backend & Cloud Enthusiast
 
 ---
 
-## 📌 Future Improvements
-
-* CI/CD pipeline integration
-* Cloud deployment (Azure)
-* Microservices architecture transition
-* Enhanced UI/UX design
-
 ---
 
 ## ⭐ If you found this project useful, feel free to star the repository!
