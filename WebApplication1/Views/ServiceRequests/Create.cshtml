@@ -1,0 +1,167 @@
+﻿ @model WebApplication1.Models.ServiceRequest
+@using WebApplication1.Models
+
+@{
+    Layout = null;
+    var contracts = ViewBag.Contracts as List<Contract>;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Create Service Request</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', sans-serif;
+            }
+
+            body {
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: radial-gradient(circle at top, #0f172a, #1e293b);
+                color: white;
+            }
+
+            .card {
+                width: 420px;
+                padding: 25px;
+                border-radius: 18px;
+                background: rgba(255,255,255,0.08);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+                animation: fadeIn 0.5s ease;
+            }
+
+            @@keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(20px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
+            h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            label {
+                font-size: 13px;
+                opacity: 0.8;
+            }
+
+            input, select {
+                width: 100%;
+                padding: 10px;
+                margin: 8px 0 15px;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+            }
+
+            button {
+                width: 100%;
+                padding: 12px;
+                border: none;
+                border-radius: 10px;
+                background: linear-gradient(90deg, #3b82f6, #2563eb);
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+                button:hover {
+                    transform: translateY(-2px);
+                }
+
+            .back {
+                display: block;
+                text-align: center;
+                margin-top: 12px;
+                color: #93c5fd;
+                text-decoration: none;
+                font-size: 13px;
+            }
+
+                .back:hover {
+                    text-decoration: underline;
+                }
+
+            .success {
+                background: #22c55e;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 15px;
+                text-align: center;
+                font-size: 13px;
+            }
+
+            .error {
+                color: #f87171;
+                font-size: 13px;
+                margin-bottom: 10px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <h2>📦 Create Request</h2>
+
+        @if (ViewBag.Success == true)
+        {
+            <div class="success">✅ Request saved successfully</div>
+        }
+
+        <div class="error">
+            @Html.ValidationSummary()
+        </div>
+
+        <form method="post" asp-action="Create">
+
+            @Html.AntiForgeryToken()
+
+            <label>Contract</label>
+            <select asp-for="ContractId" required>
+                <option value="">-- Select Contract --</option>
+                @foreach (var c in contracts ?? new List<Contract>())
+                {
+                    <option value="@c.ContractId">
+                        @c.Client?.Name - @c.Status
+                    </option>
+                }
+            </select>
+
+            <label>Description</label>
+            <input asp-for="Description" required />
+
+            <label>Cost USD</label>
+            <input asp-for="CostUSD" type="number" step="0.01" required />
+
+            <button type="submit">Save Request</button>
+
+        </form>
+
+        <!-- BACK BUTTON -->
+        <a class="back" href="/ServiceRequests/Index">⬅ Back to Dashboard</a>
+
+    </div>
+
+</body>
+</html>

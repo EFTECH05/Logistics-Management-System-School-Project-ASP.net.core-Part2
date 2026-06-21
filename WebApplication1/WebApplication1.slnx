@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+  </Folder>
+  <Project Path="../WebApplication1.Api/WebApplication1.Api.csproj" Id="143b7898-9818-433c-bd8b-e3bb15e69667" />
+  <Project Path="../WebApplication1.IntegrationTests/WebApplication1.IntegrationTests.csproj" Id="1d6af41a-be3a-4288-8049-ff4ad17f5ac3" />
+  <Project Path="../WebApplication1.Shared/WebApplication1.Shared.csproj" Id="8267d645-e9ef-4c63-9d79-780f58c4a888" />
+  <Project Path="../WebApplication2.Tests/WebApplication2.Tests.csproj" Id="d1477870-25de-4e0f-a8b3-5caa661c6607" />
+  <Project Path="WebApplication1.csproj" />
+</Solution>

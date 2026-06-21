@@ -1,0 +1,162 @@
+﻿@model WebApplication1.Models.User
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Register</title>
+
+    <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                background: radial-gradient(circle at top, #111, #000);
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            .container {
+                display: flex;
+                width: 1000px;
+                max-width: 95%;
+                border-radius: 22px;
+                overflow: hidden;
+                background: rgba(255, 140, 0, 0.05);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+                border: 1px solid rgba(255, 140, 0, 0.2);
+            }
+
+            .left {
+                flex: 1;
+                padding: 60px;
+                background: linear-gradient(135deg, #ff7a00, #ff3c00);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .right {
+                flex: 1;
+                padding: 60px;
+            }
+
+            .title {
+                font-size: 30px;
+                font-weight: bold;
+                color: #ff7a00;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                opacity: 0.7;
+                margin-bottom: 25px;
+            }
+
+            .field {
+                margin-bottom: 18px;
+            }
+
+                .field input {
+                    width: 100%;
+                    padding: 14px;
+                    border-radius: 12px;
+                    border: 1px solid rgba(255, 140, 0, 0.3);
+                    background: rgba(0,0,0,0.6);
+                    color: white;
+                    outline: none;
+                }
+
+            .btn {
+                width: 100%;
+                padding: 14px;
+                border-radius: 12px;
+                border: none;
+                background: linear-gradient(135deg, #ff7a00, #ff3c00);
+                color: black;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .footer {
+                margin-top: 15px;
+                text-align: center;
+                font-size: 13px;
+            }
+
+                .footer a {
+                    color: #ff7a00;
+                    text-decoration: none;
+                }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT -->
+        <div class="left">
+            <h1>Join Logistica</h1>
+            <p>Create your account and start managing logistics.</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <div class="title">Create Account</div>
+            <div class="subtitle">Register your account</div>
+
+            @if (ViewBag.Error != null)
+            {
+                <div style="color:red">@ViewBag.Error</div>
+            }
+
+            @if (TempData["Success"] != null)
+            {
+                <div style="color:lime">@TempData["Success"]</div>
+            }
+
+            <!-- ✅ IMPORTANT FIX: use name= instead of asp-for -->
+            <form method="post" asp-action="Register" asp-controller="Auth">
+
+                <div class="field">
+                    <input name="FullName" placeholder="Full Name" required />
+                </div>
+
+                <div class="field">
+                    <input name="Username" placeholder="Username" required />
+                </div>
+
+                <div class="field">
+                    <input name="Email" placeholder="Email Address" required />
+                </div>
+
+                <div class="field">
+                    <input name="Password" type="password" placeholder="Password" required />
+                </div>
+
+                <button type="submit" class="btn">Create Account</button>
+
+            </form>
+
+            <div class="footer">
+                Already have an account?
+                <a href="/Auth/Login">Login</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

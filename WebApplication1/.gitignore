@@ -1,0 +1,11 @@
+bin/
+obj/
+.vs/
+wwwroot/uploads/
+
+*.user
+*.suo
+*.cache
+*.log
+
+appsettings.Development.json

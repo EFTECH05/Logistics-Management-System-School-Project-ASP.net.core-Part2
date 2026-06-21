@@ -1,0 +1,146 @@
+﻿@model WebApplication1.Models.ContractViewModel
+
+@{
+    Layout = null;
+
+    // ✅ SAFE fallback to prevent NullReferenceException
+    var clients = ViewBag.Clients as List<WebApplication1.Models.Client>
+                  ?? new List<WebApplication1.Models.Client>();
+}
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top, #0f172a, #020617);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .card {
+        width: 450px;
+        padding: 30px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.06);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+        animation: fadeIn 0.5s ease;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-size: 12px;
+        opacity: 0.7;
+        margin-bottom: 5px;
+        display: block;
+    }
+
+    input, select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 12px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background: rgba(255,255,255,0.08);
+        color: white;
+        transition: 0.3s;
+    }
+
+        input:focus, select:focus {
+            background: rgba(255,255,255,0.12);
+            transform: scale(1.02);
+        }
+
+    option {
+        color: black;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background: linear-gradient(90deg, #22c55e, #16a34a);
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+        button:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+
+    .back {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        text-decoration: none;
+        color: #94a3b8;
+        font-size: 13px;
+    }
+
+        .back:hover {
+            color: white;
+        }
+</style>
+
+<div class="card">
+
+    <h2>📦 Create Contract</h2>
+
+    <form asp-action="Create" method="post" enctype="multipart/form-data">
+
+        <label>Client</label>
+        <select asp-for="ClientId" required>
+            <option value="">-- Select client --</option>
+
+            @foreach (var c in clients)
+            {
+                <option value="@c.ClientId">@c.Name</option>
+            }
+        </select>
+
+        <label>Start Date</label>
+        <input asp-for="StartDate" type="date" required />
+
+        <label>End Date</label>
+        <input asp-for="EndDate" type="date" required />
+
+        <label>Service Level</label>
+        <input asp-for="ServiceLevel" placeholder="e.g. Standard / Premium" required />
+
+        <label>Status</label>
+        <input asp-for="Status" placeholder="e.g. Draft / Active" required />
+
+        <label>Upload Contract PDF</label>
+        <input type="file" asp-for="PdfFile" />
+
+        <button type="submit">💾 Save Contract</button>
+
+    </form>
+
+    <a href="/Contracts/Index" class="back">← Back to Contracts</a>
+
+</div>

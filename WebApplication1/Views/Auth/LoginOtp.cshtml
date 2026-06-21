@@ -1,0 +1,119 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Verify OTP";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Verify OTP</title>
+
+    <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                background: radial-gradient(circle at top, #0b0b0b, #000);
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            .card {
+                width: 400px;
+                padding: 40px;
+                border-radius: 18px;
+                background: rgba(255, 122, 0, 0.06);
+                border: 1px solid rgba(255, 122, 0, 0.25);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 20px 80px rgba(0,0,0,0.8);
+                text-align: center;
+            }
+
+            .title {
+                font-size: 26px;
+                font-weight: bold;
+                color: #ff7a00;
+                margin-bottom: 10px;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                opacity: 0.7;
+                margin-bottom: 20px;
+            }
+
+            .input {
+                width: 100%;
+                padding: 14px;
+                border-radius: 10px;
+                border: 1px solid rgba(255,122,0,0.3);
+                background: rgba(0,0,0,0.6);
+                color: white;
+                text-align: center;
+                letter-spacing: 6px;
+                font-size: 16px;
+                outline: none;
+            }
+
+            .btn {
+                width: 100%;
+                margin-top: 15px;
+                padding: 14px;
+                border-radius: 10px;
+                border: none;
+                background: linear-gradient(135deg, #ff7a00, #ff3c00);
+                color: black;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+                .btn:hover {
+                    transform: scale(1.03);
+                }
+
+            .error {
+                margin-top: 10px;
+                color: #ff4d4d;
+                font-size: 13px;
+            }
+
+            .back {
+                display: block;
+                margin-top: 15px;
+                color: #ff7a00;
+                text-decoration: none;
+                font-size: 13px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="title">Verify OTP</div>
+        <div class="subtitle">Enter the 6-digit code sent to your email</div>
+
+        @if (ViewBag.Error != null)
+        {
+            <div class="error">@ViewBag.Error</div>
+        }
+
+        <!-- IMPORTANT FIX: must call controller action -->
+        <form method="post" asp-controller="Auth" asp-action="VerifyOtp">
+
+            <input name="otp" class="input" placeholder="------" maxlength="6" required />
+
+            <button type="submit" class="btn">Verify</button>
+
+        </form>
+
+        <a href="/Auth/Login" class="back">← Back to Login</a>
+
+    </div>
+
+</body>
+</html>

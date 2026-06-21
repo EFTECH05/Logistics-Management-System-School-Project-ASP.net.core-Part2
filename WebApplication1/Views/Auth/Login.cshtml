@@ -1,0 +1,161 @@
+﻿@{
+    Layout = null;
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+
+    <style>
+            body {
+                margin: 0;
+                font-family: 'Segoe UI', sans-serif;
+                background: radial-gradient(circle at top, #111111, #000000);
+                height: 100vh;
+                overflow: hidden;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+            }
+
+            .container {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                width: 1000px;
+                max-width: 95%;
+                border-radius: 20px;
+                overflow: hidden;
+                background: rgba(255, 122, 0, 0.05);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 40px 120px rgba(0,0,0,0.9);
+                border: 1px solid rgba(255, 122, 0, 0.2);
+            }
+
+            .left {
+                flex: 1;
+                padding: 60px;
+                background: linear-gradient(135deg, #000000, #1a1a1a);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-right: 2px solid rgba(255,122,0,0.2);
+            }
+
+            .right {
+                flex: 1;
+                padding: 60px;
+            }
+
+            .title {
+                font-size: 30px;
+                font-weight: bold;
+                color: #ff7a00;
+            }
+
+            .subtitle {
+                font-size: 13px;
+                opacity: 0.7;
+                margin-bottom: 25px;
+            }
+
+            .field {
+                margin-bottom: 18px;
+            }
+
+                .field input {
+                    width: 100%;
+                    padding: 14px;
+                    border-radius: 10px;
+                    border: 1px solid rgba(255,122,0,0.3);
+                    background: rgba(0,0,0,0.6);
+                    color: white;
+                }
+
+            .btn {
+                width: 100%;
+                padding: 14px;
+                border-radius: 10px;
+                border: none;
+                background: #ff7a00;
+                color: black;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .create-btn {
+                display: block;
+                text-align: center;
+                margin-top: 12px;
+                padding: 14px;
+                border-radius: 10px;
+                border: 1px solid rgba(255,122,0,0.4);
+                color: #ff7a00;
+                text-decoration: none;
+            }
+
+            .error {
+                background: rgba(255,122,0,0.15);
+                padding: 10px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+                color: #ffb366;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- LEFT -->
+        <div class="left">
+            <img src="~/img/logistic.png" style="width:120px;" />
+            <h1 style="color:#ff7a00;">Logistica</h1>
+            <p>Fast logistics management system</p>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="right">
+
+            <div class="title">Welcome Back</div>
+            <div class="subtitle">Login to your dashboard</div>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="error">@ViewBag.Error</div>
+            }
+
+            <form method="post" asp-controller="Auth" asp-action="Login">
+
+                <div class="field">
+                    <input name="email" placeholder="Email" required />
+                </div>
+
+                <div class="field">
+                    <input name="password" type="password" placeholder="Password" required />
+                </div>
+
+                <button class="btn" type="submit">Login</button>
+
+            </form>
+
+            <!-- CREATE ACCOUNT -->
+            <a href="/Auth/Register" class="create-btn">Create Account</a>
+
+            <!-- BACK TO HOME (NEW BUTTON) -->
+            <a href="/" class="create-btn" style="margin-top:10px;">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

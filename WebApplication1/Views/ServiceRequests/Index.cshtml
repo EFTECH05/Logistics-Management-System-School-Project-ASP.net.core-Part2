@@ -1,0 +1,204 @@
+﻿@model IEnumerable<WebApplication1.Models.ServiceRequest>
+
+@{
+    Layout = null;
+
+    decimal rate = ViewBag.Rate ?? 18m;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Service Requests Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Inter', sans-serif;
+            }
+
+            body {
+                min-height: 100vh;
+                background: radial-gradient(circle at top, #0f172a, #1e293b);
+                padding: 30px;
+                color: white;
+            }
+
+            .container {
+                max-width: 1100px;
+                margin: auto;
+            }
+
+            .header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+
+            .title {
+                font-size: 26px;
+                font-weight: 700;
+            }
+
+            .btn {
+                padding: 10px 14px;
+                border-radius: 10px;
+                text-decoration: none;
+                color: white;
+                font-weight: 600;
+                background: rgba(255,255,255,0.12);
+                transition: 0.25s;
+            }
+
+                .btn:hover {
+                    background: rgba(255,255,255,0.22);
+                    transform: translateY(-2px);
+                }
+
+            .card {
+                background: rgba(255,255,255,0.06);
+                backdrop-filter: blur(20px);
+                border-radius: 18px;
+                padding: 20px;
+                box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            th {
+                text-align: left;
+                font-size: 13px;
+                opacity: 0.8;
+                padding: 12px;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+
+            td {
+                padding: 14px 12px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                font-size: 14px;
+            }
+
+            tr:hover {
+                background: rgba(255,255,255,0.05);
+            }
+
+            .badge {
+                padding: 6px 10px;
+                border-radius: 20px;
+                font-size: 12px;
+                font-weight: 600;
+            }
+
+            .pending {
+                background: #facc15;
+                color: black;
+            }
+
+            .approved {
+                background: #22c55e;
+                color: white;
+            }
+
+            .rejected {
+                background: #ef4444;
+                color: white;
+            }
+
+            .muted {
+                opacity: 0.7;
+                font-size: 13px;
+            }
+
+            .top-actions {
+                display: flex;
+                gap: 10px;
+            }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <div>
+                <div class="title">📦 Service Requests</div>
+                <div class="muted">Manage all logistics service requests</div>
+            </div>
+
+            <div class="top-actions">
+                <a href="/ServiceRequests/Create" class="btn">+ New Request</a>
+                <a href="/Admin/Index" class="btn">⬅ Dashboard</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Client</th>
+                        <th>Description</th>
+                        <th>USD</th>
+                        <th>ZAR</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        var zar = item.CostUSD * rate;
+
+                        <tr>
+                            <td>#@item.RequestId</td>
+
+                            <td>@item.Contract?.Client?.Name</td>
+
+                            <td>@item.Description</td>
+
+                            <td>$@item.CostUSD.ToString("0.00")</td>
+
+                            <td>R @zar.ToString("0.00")</td>
+
+                            <td>
+                                @if (item.Status == "Pending")
+                                {
+                                    <span class="badge pending">Pending</span>
+                                }
+                                else if (item.Status == "Approved")
+                                {
+                                    <span class="badge approved">Approved</span>
+                                }
+                                else
+                                {
+                                    <span class="badge rejected">Rejected</span>
+                                }
+                            </td>
+
+                            <td>
+                                @item.CreatedDate.ToString("yyyy-MM-dd")
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</body>
+</html>

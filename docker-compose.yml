@@ -1,0 +1,34 @@
+version: '3.9'
+
+services:
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver-db
+    environment:
+      SA_PASSWORD: "YourStrong@12345!"
+      ACCEPT_EULA: "Y"
+    ports:
+      - "1433:1433"
+
+  api:
+    build:
+      context: .
+      dockerfile: WebApplication1.Api/Dockerfile
+    container_name: glms-api
+    ports:
+      - "7065:80"
+    depends_on:
+      - sqlserver
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=sqlserver;Database=GLMS;User Id=sa;Password=YourStrong@12345!;TrustServerCertificate=True;"
+
+  mvc:
+    build:
+      context: .
+      dockerfile: WebApplication1/Dockerfile
+    container_name: glms-mvc
+    ports:
+      - "5000:80"
+    depends_on:
+      - api

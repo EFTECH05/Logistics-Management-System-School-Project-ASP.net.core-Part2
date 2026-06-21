@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!-- ================= HERO CAROUSEL ================= -->
+<div class="container-fluid p-0">
+
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-inner">
+
+            <!-- SLIDE 1 -->
+            <div class="carousel-item active">
+                <img src="~/img/carousel-1.jpg" class="d-block w-100" style="height:650px; object-fit:cover;" />
+
+                <div class="carousel-caption animate-up">
+                    <h5>FAST • SAFE • GLOBAL LOGISTICS</h5>
+                    <h1>#1 Logistics Solution Provider</h1>
+
+                    <p class="d-none d-md-block">
+                        We deliver cargo across air, sea, and land with real-time tracking and guaranteed safety.
+                    </p>
+
+                    <a asp-controller="Home" asp-action="Services" class="btn btn-primary mt-2">
+                        Explore Services
+                    </a>
+
+                    <a asp-controller="Home" asp-action="Quote" class="btn btn-outline-light mt-2">
+                        Get Quote
+                    </a>
+                </div>
+            </div>
+
+            <!-- SLIDE 2 -->
+            <div class="carousel-item">
+                <img src="~/img/carousel-2.jpg" class="d-block w-100" style="height:650px; object-fit:cover;" />
+
+                <div class="carousel-caption animate-up">
+                    <h5>GLOBAL SHIPPING NETWORK</h5>
+                    <h1>We Deliver Worldwide</h1>
+
+                    <p class="d-none d-md-block">
+                        Trusted by hundreds of companies for fast and secure international logistics.
+                    </p>
+
+                    <a asp-controller="Home" asp-action="About" class="btn btn-primary mt-2">
+                        About Us
+                    </a>
+
+                    <a asp-controller="Home" asp-action="Quote" class="btn btn-outline-light mt-2">
+                        Request Quote
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+
+    </div>
+</div>
+
+<!-- ================= TRUST BAR ================= -->
+<div class="container py-4 text-center">
+    <div class="row">
+
+        <div class="col-md-3 animate-zoom delay-1">
+            <h2 class="text-primary">1200+</h2>
+            <p>Delivered Shipments</p>
+        </div>
+
+        <div class="col-md-3 animate-zoom delay-2">
+            <h2 class="text-primary">500+</h2>
+            <p>Happy Clients</p>
+        </div>
+
+        <div class="col-md-3 animate-zoom delay-3">
+            <h2 class="text-primary">50+</h2>
+            <p>Countries Covered</p>
+        </div>
+
+        <div class="col-md-3 animate-zoom">
+            <h2 class="text-primary">24/7</h2>
+            <p>Support Available</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= ABOUT ================= -->
+<div class="container py-5">
+    <div class="row align-items-center">
+
+        <div class="col-lg-6 animate-left">
+            <img src="~/img/about.jpg" class="img-fluid rounded shadow" />
+        </div>
+
+        <div class="col-lg-6 animate-right">
+            <h6 class="text-primary">ABOUT OUR COMPANY</h6>
+            <h2>Reliable & Fast Logistics Solutions</h2>
+
+            <p>
+                We are a global logistics company specializing in fast, secure, and cost-effective transportation solutions.
+                Our advanced tracking system ensures full visibility of your shipments at all times.
+            </p>
+
+            <p>
+                Whether it is air freight, sea freight, or road transport, we guarantee timely and safe delivery worldwide.
+            </p>
+
+            <a asp-controller="Home" asp-action="About" class="btn btn-primary mt-2">
+                Learn More
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<div class="container py-5">
+
+    <div class="text-center animate-up mb-4">
+        <h6 class="text-primary">OUR SERVICES</h6>
+        <h2>What We Offer</h2>
+        <p>Complete logistics solutions for businesses of all sizes</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4 animate-zoom delay-1">
+            <div class="card">
+                <img src="~/img/service-1.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h5>Air Freight</h5>
+                    <p>Fast international air cargo delivery with high security.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 animate-zoom delay-2">
+            <div class="card">
+                <img src="~/img/service-2.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h5>Sea Freight</h5>
+                    <p>Cost-effective ocean shipping for large cargo loads.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 animate-zoom delay-3">
+            <div class="card">
+                <img src="~/img/service-3.jpg" class="card-img-top" />
+                <div class="card-body">
+                    <h5>Road Freight</h5>
+                    <p>Reliable land transport across regional routes.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= WHY CHOOSE US ================= -->
+<div class="container py-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-6 animate-left">
+
+            <h6 class="text-primary">WHY CHOOSE US</h6>
+            <h2>Trusted Logistics Partner</h2>
+
+            <ul class="list-unstyled mt-3">
+                <li>✔ Real-time tracking system</li>
+                <li>✔ Fast & secure delivery network</li>
+                <li>✔ Affordable pricing plans</li>
+                <li>✔ Global coverage in 50+ countries</li>
+                <li>✔ 24/7 customer support</li>
+            </ul>
+
+            <a asp-controller="Home" asp-action="Quote" class="btn btn-primary mt-3">
+                Get Free Quote
+            </a>
+
+        </div>
+
+        <div class="col-lg-6 animate-right">
+            <img src="~/img/feature.jpg" class="img-fluid rounded shadow" />
+        </div>
+
+    </div>
+</div>
+
+<!-- ================= CALL TO ACTION ================= -->
+<div class="container py-5 text-center bg-dark text-white rounded">
+
+    <h2 class="animate-up">Ready to Ship With Us?</h2>
+    <p class="animate-up">
+        Join hundreds of businesses trusting us with their logistics operations worldwide.
+    </p>
+
+    <a asp-controller="Home" asp-action="Quote" class="btn btn-primary animate-up">
+        Request a Free Quote
+    </a>
+
+</div>

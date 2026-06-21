@@ -1,0 +1,129 @@
+
+:root {
+    --primary-color: #ff6a00; /* ORANGE */
+    --dark-color: #0b1f3a; /* NAVY */
+    --light-bg: #f5f7fa;
+}
+
+/* BODY */
+body {
+    margin-bottom: 60px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: var(--light-bg);
+}
+
+/* NAVBAR */
+.navbar {
+    padding: 15px 0;
+    background-color: white !important;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    letter-spacing: 1px;
+    color: var(--dark-color) !important;
+}
+
+/* NAV LINKS */
+.navbar-nav .nav-link {
+    font-weight: 500;
+    margin: 0 8px;
+    transition: 0.3s;
+    color: var(--dark-color) !important;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: var(--primary-color) !important;
+    }
+
+/* PRIMARY BUTTON */
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+    .btn-primary:hover {
+        background-color: #e85f00 !important;
+    }
+
+/* OUTLINE BUTTON */
+.btn-outline-primary {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+    .btn-outline-primary:hover {
+        background-color: var(--primary-color) !important;
+        color: white !important;
+    }
+
+/* CAROUSEL TEXT */
+.carousel-caption h1 {
+    font-weight: 700;
+    color: white;
+}
+
+.carousel-caption h5 {
+    color: var(--primary-color);
+    letter-spacing: 2px;
+}
+
+/* CARDS */
+.card {
+    border: none;
+    transition: 0.3s;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+/* HEADINGS */
+h1, h2, h3, h4 {
+    color: var(--dark-color);
+}
+
+/* STATS */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--dark-color);
+    color: white;
+}
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}

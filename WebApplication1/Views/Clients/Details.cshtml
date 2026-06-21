@@ -1,0 +1,72 @@
+﻿@model WebApplication1.Models.Client
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Client Details";
+}
+
+<style>
+    body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle at top, #1e293b, #0f172a);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card {
+        width: 450px;
+        padding: 30px;
+        border-radius: 18px;
+        background: rgba(255,255,255,0.08);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        text-align: center;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+
+    .info {
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    .label {
+        opacity: 0.7;
+    }
+
+    .back {
+        display: block;
+        margin-top: 20px;
+        color: #fbbf24;
+        text-decoration: none;
+    }
+</style>
+
+<div class="card">
+
+    <h2>📄 Client Details</h2>
+
+    <div class="info">
+        <div class="label">contact type</div>
+        <div>@Model.Name</div>
+    </div>
+
+    <div class="info">
+        <div class="label">Name</div>
+        <div>@Model.ContactDetails</div>
+    </div>
+
+    <div class="info">
+        <div class="label">Region</div>
+        <div>@Model.Region</div>
+    </div>
+
+    <a href="/Clients/Index" class="back">← Back</a>
+
+</div>
